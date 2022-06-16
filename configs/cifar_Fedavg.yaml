@@ -1,0 +1,8 @@
+#architecture
+weight_decay: 1e-3 
+
+
+
+#'''
+#'--centralized','--federated_iid','--federated_skew1class','--federated_dirichlet','--dirichlet_alpha','0.6','--batch_size','50',"--#centralized_epochs",'3',"--global_epochs",'3','--alpha','0.5','--epsilon','0.1','--momentum','0.0','--lr','0.1','--learning_rate_decay','0.992','--#weight_decay','1e-3','--seed','2021'
+#'''
