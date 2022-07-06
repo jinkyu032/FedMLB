@@ -10,14 +10,14 @@ Jinkyu Kim&ast;, Geeho Kim&ast;, Bohyung Han (&ast; equal contribution) in *ICML
 <img src='./misc/framework.png'>
 </div>
 This repository provides detailed information for reproducing results presented in the paper. <br />  
-it includes models, hyperparameters, and implementation of client's data generation for {non-iid, iid} data distributions.
+it includes models, hyperparameters, and implementation of client's data generation for {non-iid, iid} data.
 
 ## :gear: Setup
 ### Dependencies
 This repository is implemented based on Pytorch, and the required packages are specified in ```environment.yaml```
 
 ### Environment
-We test the code on virtual environment with Anaconda on Ubuntu 16.04.
+We test the code on virtual environment with Anaconda on Ubuntu 16.04.  
 Create the virtual environment by importing the dependencies with the command
  ```
  conda env create -f environment.yaml -n fedmlb
