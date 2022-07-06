@@ -51,5 +51,6 @@ If you use our code for your work, please cite our paper as below:
 ```
 
 ## Acknowledgement
-Part of our code is borrowed from the [Pytorch implementation of vanilla federated learning framework](https://github.com/AshwinRJ/Federated-Learning-PyTorch)
+
+Part of our code is borrowed from [Federated-Learning-PyTorch](https://github.com/AshwinRJ/Federated-Learning-PyTorch)
 
