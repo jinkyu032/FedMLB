@@ -1,13 +1,16 @@
-import torch
-from torchvision import datasets, transforms
-from torch.utils.data import  Dataset
 import os
-from datasets.cifar import cifar_noniid, cifar_dirichlet_balanced,cifar_dirichlet_unbalanced, cifar_iid
+
+import torch
 import torch.nn as nn
+from torch.utils.data import Dataset
+from torchvision import transforms
 
+from datasets.cifar import cifar_noniid, cifar_dirichlet_balanced, cifar_dirichlet_unbalanced, cifar_iid
 
-__all__ = ['DatasetSplit', 'DatasetSplitMultiView', 'get_dataset', 'MultiViewDataInjector', 'GaussianBlur', 'TransformTwice'
-                                                                                                            ]
+__all__ = ['DatasetSplit', 'DatasetSplitMultiView', 'get_dataset', 'MultiViewDataInjector', 'GaussianBlur',
+           'TransformTwice'
+           ]
+
 
 class TransformTwice:
     def __init__(self, transform):
@@ -34,6 +37,7 @@ class DatasetSplit(Dataset):
         image, label = self.dataset[self.idxs[item]]
         return torch.tensor(image), torch.tensor(label)
 
+
 class DatasetSplitMultiView(Dataset):
     """An abstract Dataset class wrapped around Pytorch Dataset class.
     """
@@ -51,8 +55,9 @@ class DatasetSplitMultiView(Dataset):
 
 
 def get_dataset(args, trainset, mode='iid'):
-    directory = args.client_data + '/' + args.set + '/' + ('un' if args.data_unbalanced==True else '') + 'balanced'
-    filepath=directory+'/' + mode + (str(args.dirichlet_alpha) if mode == 'dirichlet' else '') + '_clients' +str(args.num_of_clients) +'.txt'
+    directory = args.client_data + '/' + args.set + '/' + ('un' if args.data_unbalanced == True else '') + 'balanced'
+    filepath = directory + '/' + mode + (str(args.dirichlet_alpha) if mode == 'dirichlet' else '') + '_clients' + str(
+        args.num_of_clients) + '.txt'
     check_already_exist = os.path.isfile(filepath) and (os.stat(filepath).st_size != 0)
     create_new_client_data = not check_already_exist or args.create_client_dataset
     print("create new client data: " + str(create_new_client_data))
@@ -73,7 +78,7 @@ def get_dataset(args, trainset, mode='iid'):
         elif mode == 'skew1class':
             dataset = cifar_noniid(trainset, args.num_of_clients)
         elif mode == 'dirichlet':
-            if args.data_unbalanced==True:
+            if args.data_unbalanced == True:
                 dataset = cifar_dirichlet_unbalanced(trainset, args.num_of_clients, alpha=args.dirichlet_alpha)
             else:
                 dataset = cifar_dirichlet_balanced(trainset, args.num_of_clients, alpha=args.dirichlet_alpha)
@@ -91,7 +96,6 @@ def get_dataset(args, trainset, mode='iid'):
     return dataset
 
 
-
 class MultiViewDataInjector(object):
     def __init__(self, *args):
         self.transforms = args[0]
@@ -102,6 +106,7 @@ class MultiViewDataInjector(object):
             sample = self.random_flip(sample)
         output = [transform(sample) for transform in self.transforms]
         return output
+
 
 class GaussianBlur(object):
     """blur a single image on CPU"""
