@@ -1,6 +1,7 @@
 # Multi-Level Branched Regularization for Federated Learning
 
-Official implementation of **Multi-Level Branched Regularization for Federated Learning**, Jinkyu Kim&ast;, Geeho Kim&ast;, Bohyung Han (&ast; equal contribution) in *ICML* 2022
+Official implementation of **Multi-Level Branched Regularization for Federated Learning** \
+Jinkyu Kim&ast;, Geeho Kim&ast;, Bohyung Han (&ast; equal contribution) in *ICML* 2022
 
 [Paper]() | [Project Page](http://cvlab.snu.ac.kr/research/FedMLB/) 
 
@@ -8,7 +9,8 @@ Official implementation of **Multi-Level Branched Regularization for Federated L
 <div>
 <img src='./misc/framework.png'>
 </div>
-This repository provides detailed information for reproducing results presented in the paper, including clients data splits, hyperparameters and model.
+This repository provides detailed information for reproducing results presented in the paper. <br />  
+it includes models, hyperparameters, and implementation of client's data generation for {non-iid, iid} data distributions.
 
 ## :gear: Setup
 ### Dependencies
