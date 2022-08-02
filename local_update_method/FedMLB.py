@@ -10,6 +10,14 @@ from utils import DatasetSplit
 
 
 def KD(input_p, input_q, T=1):
+    kl_loss = nn.KLDivLoss(reduction="batchmean")
+    p = F.softmax(input_p/T, dim = 1)
+    q = F.log_softmax(input_q/T, dim = 1)
+    result = kl_loss(q,p)
+    return result    
+    
+    
+    '''
     p = F.softmax((input_p / T), dim=1)
     q = F.softmax((input_q / T), dim=1)
     result = ((p * ((p / q).log())).sum()) / len(input_p)
@@ -43,6 +51,7 @@ def KD(input_p, input_q, T=1):
         print((p * ((p / q).log())).sum())
 
     return result
+    '''
 
 
 class LocalUpdate(object):
