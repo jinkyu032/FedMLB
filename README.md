@@ -34,7 +34,7 @@ Create the virtual environment by importing the dependencies with the command
 ### Non-iid data (Dirichlet 0.3) on CIFAR-100
 100 clients, 5% participation, 1000 rounds communication, 5 local epochs, and ResNet18
 ```
-python3 federated_train.py --cuda_visible_device 0 --method FedMLB --arch=ResNet18_FedMLB  --mode dirichlet --dirichlet_alpha 0.3  --global_epochs 1000 --local_epochs 5  --lr 1.1 --learning_rate_decay 0.998 --weight_decay 1e-3 --seed 0 --set CIFAR100  --workers 8 --participation_rate=0.05 --learning_rate_decay 0.998 --num_of_clients=100   --batch_size=50
+python3 federated_train.py --cuda_visible_device 0 --method FedMLB --arch=ResNet18_FedMLB  --mode dirichlet --dirichlet_alpha 0.3  --global_epochs 1000 --local_epochs 5  --lr 0.1 --learning_rate_decay 0.998 --weight_decay 1e-3 --seed 0 --set CIFAR100  --workers 8 --participation_rate=0.05 --learning_rate_decay 0.998 --num_of_clients=100   --batch_size=50
 ```
 
 
